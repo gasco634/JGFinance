@@ -1,0 +1,9 @@
+# Mettre à jour JGFinance sur Cloudflare Workers
+
+1. Extraire le contenu de `JGFinance-mise-a-jour-Worker.zip` dans un dossier.
+2. Installer Node.js si `node` ou `npx` n’est pas reconnu dans PowerShell.
+3. Ouvrir le dossier extrait, puis double-cliquer sur `Publier-JGFinance.cmd`.
+4. À la première utilisation, Wrangler peut demander d’autoriser l’accès à Cloudflare dans le navigateur. Se connecter au compte qui héberge déjà le Worker `jgfinance`.
+5. Vérifier ensuite l’adresse `https://jgfinance.jeremie33gasbeogo3.workers.dev/`.
+
+Le fichier `wrangler.jsonc` cible le Worker existant `jgfinance`. Les fichiers du site sont dans `public`; les fichiers du compte (revenus, dépenses, clients) ne sont pas contenus dans cette archive.

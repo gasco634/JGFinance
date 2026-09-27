@@ -1,0 +1,18 @@
+{
+  "id": "./Bilan%20Financier.html",
+  "name": "JGFinance — Votre suivi financier, simplement",
+  "short_name": "JGFinance",
+  "description": "Suivez vos revenus, vos dépenses et votre solde où que vous soyez.",
+  "lang": "fr",
+  "start_url": "./Bilan%20Financier.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#F5F3EF",
+  "theme_color": "#EF6B2F",
+  "categories": ["finance", "business"],
+  "icons": [
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

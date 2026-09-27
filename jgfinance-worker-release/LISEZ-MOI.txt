@@ -1,0 +1,19 @@
+﻿JGFINANCE — PUBLICATION EN LIGNE
+
+Le dossier public contient la version actuelle de l'application, son image de fond et sa configuration Supabase (URL et clé publique uniquement).
+
+1. Décompressez entièrement cette archive dans un dossier.
+2. Si Node.js n'est pas installé, installez sa version LTS depuis https://nodejs.org/.
+3. Double-cliquez sur Publier-JGFinance.cmd.
+4. Si Wrangler le demande, connectez-vous au compte Cloudflare qui possède déjà le Worker « jgfinance », puis autorisez la publication.
+5. Quand la commande confirme la publication, ouvrez :
+   https://jgfinance.jeremie33gasbeogo3.workers.dev/
+
+La publication du site ne déplace ni n'efface la base Supabase. Pour que les inscriptions et les sauvegardes fonctionnent :
+- Dans Supabase > SQL Editor, exécutez supabase-schema.sql si ce n'est pas déjà fait.
+- Dans Supabase > Authentication > URL Configuration, définissez le Site URL à l'adresse HTTPS ci-dessus. Ajoutez cette même adresse aux URL de redirection autorisées.
+- Créez un compte dans JGFinance, puis connectez-vous depuis chaque appareil avec ce même compte.
+
+Cloudflare héberge les fichiers du site. Supabase stocke les données du compte et les transmet aux appareils connectés; le téléphone doit avoir accès à Internet pour voir les changements en temps réel. La clé publique peut être dans le navigateur; ne publiez jamais une clé secrète ou service_role.
+
+Pour installer sur téléphone : ouvrez le lien dans Safari ou Chrome, puis utilisez « Ajouter à l'écran d'accueil » / « Installer l'application ».

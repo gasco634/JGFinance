@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>JGFinance · aperçu mobile</title>
+<style>
+:root{color-scheme:dark;--bg:#101e29;--panel:#182d3b;--line:#2b4454;--ink:#f4f6f6;--muted:#aab9c1;--gold:#ffd044;--coral:#f25543;--device-w:390px;--device-h:844px;font-family:Inter,"Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--ink);background:radial-gradient(ellipse at 50% -15%,rgba(255,190,61,.16),transparent 48%),radial-gradient(ellipse at 100% 75%,rgba(242,85,67,.10),transparent 35%),var(--bg)}
+.page{min-height:100vh;display:grid;grid-template-rows:auto 1fr;padding:20px clamp(14px,3vw,36px) 24px}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 16px;border:1px solid rgba(255,255,255,.09);border-radius:15px;background:rgba(24,45,59,.78);box-shadow:0 12px 35px rgba(0,0,0,.13);backdrop-filter:blur(14px)}
+.brand{display:flex;align-items:center;gap:11px;min-width:200px}.brand-mark{display:grid;place-items:center;width:37px;height:37px;border-radius:12px;background:linear-gradient(135deg,var(--gold),var(--coral));color:#173448;font-weight:900;font-size:18px}.brand strong{display:block;font-size:13px;letter-spacing:-.02em}.brand small{display:block;margin-top:3px;color:var(--muted);font-size:10px}
+.controls{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap}.controls select,.control-btn,.open-app{height:35px;padding:0 11px;border:1px solid var(--line);border-radius:9px;background:#142a38;color:var(--ink);font:600 11px Inter,"Segoe UI",sans-serif;cursor:pointer}.control-btn:hover,.controls select:hover{border-color:rgba(255,208,68,.65)}.control-btn.active{background:rgba(255,208,68,.13);border-color:rgba(255,208,68,.5);color:var(--gold)}.open-app{display:inline-flex;align-items:center;text-decoration:none;background:linear-gradient(110deg,var(--gold),var(--coral));border:0;color:#1c3442;font-weight:750}.hint{color:var(--muted);font-size:10px;white-space:nowrap}
+.stage{min-height:0;display:grid;place-items:center;overflow:auto;padding:18px 12px 4px}.scaled-slot{display:grid;place-items:center;flex:none}.device{position:relative;padding:12px;border:1px solid rgba(255,255,255,.21);border-radius:43px;background:linear-gradient(145deg,#344855,#09151d 46%,#263a46);box-shadow:0 36px 85px rgba(0,0,0,.46),inset 0 1px 1px rgba(255,255,255,.2);transition:width .25s,height .25s,transform .25s}.device:before{content:"";position:absolute;top:7px;left:50%;width:54px;height:4px;transform:translateX(-50%);border-radius:99px;background:#83939a;opacity:.65;z-index:3}.screen{position:relative;width:var(--device-w);height:var(--device-h);overflow:hidden;border-radius:31px;background:#f5f3ef;box-shadow:inset 0 0 0 1px rgba(255,255,255,.15)}iframe{display:block;width:100%;height:100%;border:0;background:#f5f3ef}.notch{position:absolute;z-index:2;top:0;left:50%;width:110px;height:25px;transform:translateX(-50%);border-radius:0 0 16px 16px;background:#0a151d}.home-indicator{position:absolute;z-index:2;left:50%;bottom:5px;width:104px;height:4px;transform:translateX(-50%);border-radius:99px;background:rgba(16,28,35,.72);pointer-events:none}.device.landscape .screen{border-radius:27px}.device.landscape{border-radius:40px}.device.landscape .notch{top:50%;left:0;width:22px;height:112px;transform:translateY(-50%);border-radius:0 15px 15px 0}.device.landscape .home-indicator{left:auto;right:5px;bottom:50%;width:4px;height:95px;transform:translateY(50%)}
+.footer{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:8px;color:var(--muted);font-size:10px}.footer kbd{padding:2px 5px;border:1px solid var(--line);border-radius:5px;background:var(--panel);color:var(--ink);font:inherit}
+@media(max-width:700px){.page{padding:10px}.toolbar{align-items:flex-start;flex-direction:column;padding:12px}.brand{min-width:0}.controls{justify-content:flex-start}.hint{white-space:normal}.stage{min-height:calc(100vh - 165px);padding-top:12px}.footer{padding-bottom:4px}}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="toolbar">
+    <div class="brand"><img class="brand-mark" src="/icons/icon-192.png" alt=""><div><strong>Aperçu mobile</strong><small>JGFinance · émulateur responsive</small></div></div>
+    <div class="controls">
+      <label class="hint" for="devicePreset">Appareil</label>
+      <select id="devicePreset" aria-label="Choisir la taille de l’appareil"><option value="iphone">iPhone · 390 × 844</option><option value="android">Android · 412 × 915</option><option value="compact">Compact · 360 × 800</option><option value="tablet">Tablette · 768 × 1024</option></select>
+      <button class="control-btn" id="rotateBtn" type="button" title="Passer en paysage">↻ Paysage</button>
+      <button class="control-btn" id="refreshBtn" type="button" title="Actualiser l’application">⟳ Actualiser</button>
+      <a class="open-app" href="/Bilan%20Financier.html" target="_blank" rel="noopener">Ouvrir seule ↗</a>
+    </div>
+  </header>
+  <main class="stage" id="stage" aria-label="Aperçu de l’application sur mobile">
+    <div class="scaled-slot" id="scaledSlot"><div class="device" id="device"><div class="screen"><iframe id="appFrame" title="JGFinance dans un émulateur mobile" src="/Bilan%20Financier.html"></iframe><span class="notch" aria-hidden="true"></span><span class="home-indicator" aria-hidden="true"></span></div></div></div>
+  </main>
+  <footer class="footer">Utilise un compte local de prévisualisation · <span>Commande VS Code :</span> <kbd>F5</kbd> <span>pour ouvrir dans le navigateur intégré</span></footer>
+</div>
+<script>
+(()=>{
+  const presets={iphone:[390,844],android:[412,915],compact:[360,800],tablet:[768,1024]};
+  const preset=document.getElementById('devicePreset'),device=document.getElementById('device'),stage=document.getElementById('stage'),slot=document.getElementById('scaledSlot'),frame=document.getElementById('appFrame');
+  let landscape=false,resizeTimer;
+  function fit(){
+    const [baseW,baseH]=presets[preset.value]||presets.iphone,w=landscape?baseH:baseW,h=landscape?baseW:baseH;
+    document.documentElement.style.setProperty('--device-w',`${w}px`);document.documentElement.style.setProperty('--device-h',`${h}px`);
+    device.classList.toggle('landscape',landscape);const outerW=w+24,outerH=h+24;
+    const scale=Math.min(1,(stage.clientWidth-30)/outerW,(stage.clientHeight-30)/outerH);
+    device.style.transform=`scale(${Math.max(.3,scale)})`;slot.style.width=`${outerW*Math.max(.3,scale)}px`;slot.style.height=`${outerH*Math.max(.3,scale)}px`;
+    document.getElementById('rotateBtn').classList.toggle('active',landscape);document.getElementById('rotateBtn').textContent=landscape?'↻ Portrait':'↻ Paysage';
+  }
+  preset.addEventListener('change',fit);document.getElementById('rotateBtn').addEventListener('click',()=>{landscape=!landscape;fit();});
+  document.getElementById('refreshBtn').addEventListener('click',()=>frame.contentWindow.location.reload());
+  window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(fit,100);});fit();
+})();
+</script>
+</body>
+</html>
